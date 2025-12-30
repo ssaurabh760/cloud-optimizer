@@ -47,12 +47,17 @@ async def analyze_aws_account(request: AnalysisRequest):
             "aws_region": "us-east-1"
         }
     """
+    # print(f"DEBUG: Received region: {request.aws_region}")
+    # print(f"DEBUG: Access key: {request.aws_access_key[:10]}...")
     try:
         analyzer = ComprehensiveCostAnalyzer(
             request.aws_access_key,
             request.aws_secret_key,
             request.aws_region
         )
+        # print(f"DEBUG: EC2 region: {analyzer.ec2.region}")
+        # print(f"DEBUG: Storage region: {analyzer.storage.cloudwatch.meta.region_name}")
+        
         
         result = analyzer.analyze_all()
         

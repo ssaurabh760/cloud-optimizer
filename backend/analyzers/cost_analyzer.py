@@ -1,7 +1,7 @@
 # backend/analyzers/cost_analyzer.py
 from datetime import datetime
-from ec2_analyzer import EC2Analyzer
-from storage_analyzer import StorageAnalyzer
+from .ec2_analyzer import EC2Analyzer
+from .storage_analyzer import StorageAnalyzer
 from typing import Dict
 
 class ComprehensiveCostAnalyzer:
